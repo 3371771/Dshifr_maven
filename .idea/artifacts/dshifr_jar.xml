@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="dshifr:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/dshifr_jar</output-path>
+    <root id="archive" name="dshifr.jar">
+      <element id="module-output" name="dshifr" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javazoom/jlayer/1.0.1/jlayer-1.0.1.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/java/javas" />
+    </root>
+  </artifact>
+</component>
