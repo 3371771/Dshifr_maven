@@ -14,7 +14,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class BadFile {
+class BadFile {
 
     static Button buttonYes;
     static Stage windowError = new Stage();
@@ -23,32 +23,28 @@ public class BadFile {
 
         windowError.getIcons().add(new Image("icon_.jpg"));
 
-        windowError.initModality(Modality.APPLICATION_MODAL);
+        //windowError.initModality(Modality.APPLICATION_MODAL);
         windowError.setTitle("Ошибка!!");
         windowError.setHeight(200);
-        windowError.setWidth(750);
+        windowError.setWidth(770);
 
         Label labelError = new Label(err);
         labelError.setFont(Font.font("Courier New",17));
 
         Button buttonNo = new Button("ОЙ, я передумал");
-        buttonNo.setStyle("-fx-base: #71DF89;");
-        buttonNo.setFont(Font.font("Courier New",17));
+        buttonNo.setPrefWidth(170);
         buttonNo.setOnAction((ActionEvent e) -> {
             windowError.close();
             AlertWindow.close();
         });
 
         buttonYes = new Button("Ну и пусть!");
-        buttonYes.setStyle("-fx-base: #71DF89;");
-        buttonYes.setFont(Font.font("Courier New",17));
+        buttonYes.setPrefWidth(170);
         buttonYes.setOnAction((ActionEvent e) -> {
             windowError.close();
             AlertWindow.fun();
         });
-//        if (err.equals("Так сделать нельзя. Файл зашифрован другим алгоритмом!")){
-//            buttonYes.setVisible(false);
-//        }
+
         ImageView imageView1 = new ImageView("atten_red.jpg");
 
         VBox vLayoutErr = new VBox(15);
@@ -62,6 +58,7 @@ public class BadFile {
         hLayoutErr.getChildren().addAll(imageView1, vLayoutErr);
 
         Scene sceneErr = new Scene(hLayoutErr, 350, 220);
+        sceneErr.getStylesheets().add("style.css");
 
         windowError.setScene(sceneErr);
         windowError.show();

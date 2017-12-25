@@ -38,22 +38,18 @@ class CloseDialog {
         });
 
         Label labelHowClose = new Label(titleClose);
-        labelHowClose.setFont(Font.font("Courier New", 17));
 
         ImageView imageView = new ImageView("atten.jpg");
 
         Button buttonNoSave = new Button("Не сохранять");
-        buttonNoSave.setStyle("-fx-base: #71DF89; ");
-        buttonNoSave.setFont(Font.font("Courier New", 17));
+        buttonNoSave.setPrefWidth(160);
         buttonNoSave.setOnAction(e -> {
             windowClose.close();
             AlertWindow.close();
         });
 
         Button buttonSave = new Button("Сохранить");
-        buttonSave.setStyle("-fx-base: #71DF89; ");
-        buttonSave.setFont(Font.font("Courier New", 17));
-
+        buttonSave.setPrefWidth(160);
         buttonSave.setOnAction(e -> {
             fileSave = true;
             if (AlertWindow.toDo.equals("encrypt")) {
@@ -128,6 +124,7 @@ class CloseDialog {
         hLayoutClose.setAlignment(Pos.CENTER);
 
         Scene sceneClose = new Scene(hLayoutClose);
+        sceneClose.getStylesheets().add("style.css");
 
         windowClose.setScene(sceneClose);
         windowClose.show();
@@ -152,8 +149,6 @@ class CloseDialog {
         ImageView imageViewAttRed = new ImageView("atten_red.jpg");
 
         Button buttonOk = new Button("Ok");
-        buttonOk.setStyle("-fx-base: #71DF89; ");
-        buttonOk.setFont(Font.font("Courier New", 17));
         buttonOk.setOnAction(e -> windowDoNot.close());
 
         VBox vDoNotLayout = new VBox(15);
@@ -166,9 +161,10 @@ class CloseDialog {
         hDoNotLayout.setPadding(new Insets(13));
         hDoNotLayout.setAlignment(Pos.CENTER);
 
-        Scene scene_do_not = new Scene(hDoNotLayout);
+        Scene sceneDoNot = new Scene(hDoNotLayout);
+        sceneDoNot.getStylesheets().add("style.css");
 
-        windowDoNot.setScene(scene_do_not);
+        windowDoNot.setScene(sceneDoNot);
         windowDoNot.show();
     }
 

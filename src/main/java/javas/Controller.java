@@ -23,7 +23,7 @@ class Controller {
         // сперва зашифровка
         if (n == 1) {
 
-            System.out.println("зашифровка DES");
+         //   System.out.println("зашифровка DES");
 
             //генерация ключа
             KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
@@ -47,8 +47,8 @@ class Controller {
             FileInputStream fis = new FileInputStream(cleartextFile);
             FileOutputStream fos = new FileOutputStream(cipherFile);
 
-            System.out.println("Зашифровали " + cleartextFile);
-            System.out.println("Вот сюда " + cipherFile);
+//            System.out.println("Зашифровали " + cleartextFile);
+//            System.out.println("Вот сюда " + cipherFile);
 
             // сохраняем полученный файл
             CipherOutputStream cos = new CipherOutputStream(fos, cipher);
@@ -63,7 +63,7 @@ class Controller {
             // расшифровка
         } else if (n == 2) {
 
-            System.out.println("расшифровываем DES");
+          //  System.out.println("расшифровываем DES");
 
             // достаем ключ из файла
             FileInputStream fileInputStream = new FileInputStream("secKeyDES");
@@ -82,8 +82,8 @@ class Controller {
             FileOutputStream fos = new FileOutputStream(cleartextAgainFile);
             FileInputStream fis = new FileInputStream(cipherFile);
 
-            System.out.println("Расшифровываем сюда" + cleartextAgainFile);
-            System.out.println("Вот это " + cipherFile);
+//            System.out.println("Расшифровываем сюда" + cleartextAgainFile);
+//            System.out.println("Вот это " + cipherFile);
 
             // сохраняем полученный файл
             CipherInputStream cis = new CipherInputStream(fis, cipher);
@@ -106,7 +106,7 @@ class Controller {
         int indexDecrypt = fileName.lastIndexOf("з");
 
         if (n == 1) {
-            System.out.println("зашифровка AES");
+           // System.out.println("зашифровка AES");
 
             //генерируем ключ
             KeyGenerator keyGen = KeyGenerator.getInstance("AES");
@@ -131,8 +131,8 @@ class Controller {
             FileInputStream fis = new FileInputStream(cleartextFile);
             FileOutputStream fos = new FileOutputStream(cipherFile);
 
-            System.out.println("Зашифровали " + cleartextFile);
-            System.out.println("Вот сюда " + cipherFile);
+//            System.out.println("Зашифровали " + cleartextFile);
+//            System.out.println("Вот сюда " + cipherFile);
 
             // сохраняем полученный файл
             CipherOutputStream cos = new CipherOutputStream(fos, cipher);
@@ -145,7 +145,7 @@ class Controller {
 
         } else if (n == 2) {
 
-            System.out.println("расшифровываем AES");
+           // System.out.println("расшифровываем AES");
 
             // достаем ключ из файла
             FileInputStream fileInputStream = new FileInputStream("secKeyAES");
@@ -184,8 +184,8 @@ class Controller {
         KeyPair keys = genPair.generateKeyPair();
         pubKeyRSA = keys.getPublic();
         privKeyRSA = keys.getPrivate();
-        System.out.println(privKeyRSA);
-        System.out.println(pubKeyRSA);
+//        System.out.println(privKeyRSA);
+//        System.out.println(pubKeyRSA);
 
         //записываем закрытый ключи в файл
         FileOutputStream fileOutputStreamPriv = new FileOutputStream("privKeyRSA");
@@ -209,7 +209,7 @@ class Controller {
 
         if (n==1) {
 
-            System.out.println("Зашифровка RSA");
+          //  System.out.println("Зашифровка RSA");
             //проверяем есть ли на ПК публичный ключ для шифроания файлов
             if (!new File("pubKeyRSA").exists()) {
                 //если нет, генерим пару ключей и сохраняем
@@ -222,7 +222,7 @@ class Controller {
             } else {
                 //если есть, берем из файла
                 // достаем ключ из файла
-                System.out.println("есть");
+              //  System.out.println("есть");
                 FileInputStream fileInputStream = new FileInputStream("pubKeyRSA");
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                 pubKeyRSA = (Key) objectInputStream.readObject();
@@ -249,13 +249,13 @@ class Controller {
 
         } else if (n==2) {
 
-            System.out.println("расшифровка RSA");
+           // System.out.println("расшифровка RSA");
 
             // достаем ключ из файла
             FileInputStream fileInputStream = new FileInputStream("privKeyRSA");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             privKeyRSA = (Key) objectInputStream.readObject();
-            System.out.println(privKeyRSA);
+           // System.out.println(privKeyRSA);
 
             //указание, что хотим расшифровать
             cipher.init(Cipher.DECRYPT_MODE, privKeyRSA);

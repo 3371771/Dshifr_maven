@@ -36,7 +36,7 @@ class AlertWindow {
         titleOut = title;
         //задаем размер окна
         windowChoose.setHeight(200);
-        windowChoose.setWidth(700);
+        windowChoose.setWidth(720);
         //задаем иконку окна
         windowChoose.getIcons().add(new Image("icon_mini.jpg"));
 
@@ -45,12 +45,9 @@ class AlertWindow {
 
         //объявляем надпись и задаем текст стиль и шрифт
         Label labelChoose = new Label("С каким файлом будем работать?");
-        labelChoose.setFont(Font.font("Courier New",17));
 
         //объявляем кнопку и задаем текст цвет и шрифт
         Button buttonChoose = new Button("Выбор файла");
-        buttonChoose.setStyle("-fx-base: #71DF89; ");
-        buttonChoose.setFont(Font.font("Courier New",15));
         //объявляем действие для кнопки
         buttonChoose.setOnAction(e-> {
             try {
@@ -66,8 +63,6 @@ class AlertWindow {
 
         //объявляем кнопку и задаем текст цвет и шрифт
         Button buttonKayRsaGen = new Button("Сгенерировать ключи");
-        buttonKayRsaGen.setStyle("-fx-base: #71DF89; ");
-        buttonKayRsaGen.setFont(Font.font("Courier New",15));
         buttonKayRsaGen.setOnAction(e -> {
             try {
                 //генерация ключей
@@ -95,16 +90,15 @@ class AlertWindow {
 
         //привязываем бокс с сцене, а сцену к окну и показываем
         Scene sceneChoose = new Scene(hLayoutChoose);
+        sceneChoose.getStylesheets().add("style.css");
         windowChoose.setScene(sceneChoose);
         windowChoose.show();
 
         //разметка и логика окна действия с файлом
         Label labelTodo = new Label("Что сделать с этим файлом?");
-        labelTodo.setFont(Font.font("Courier New",17));
 
         Button buttonTodoEncrypt = new Button("Зашифровать");
-        buttonTodoEncrypt.setStyle("-fx-base: #71DF89;");
-        buttonTodoEncrypt.setFont(Font.font("Courier New",17));
+        buttonTodoEncrypt.setPrefWidth(150);
         buttonTodoEncrypt.setOnAction(e -> {
             if (title.equals("RSA") && (AlertWindow.file.length()>501)) {
                     BadFile.display("Такой большой файл я зашифровать не смогу :( До 501б максимум");
@@ -117,19 +111,15 @@ class AlertWindow {
         });
 
         Button buttonTodoDecrypt = new Button("Расшифровать");
-        buttonTodoDecrypt.setStyle("-fx-base: #71DF89;");
-        buttonTodoDecrypt.setFont(Font.font("Courier New",17));
+        buttonTodoDecrypt.setPrefWidth(150);
         buttonTodoDecrypt.setOnAction((ActionEvent e) -> {
-
             //сюда проверку на то ,чем зашифрован
             //и зашифрован ли вообще
-
-            if (!fileName.contains("_зашифрован")) {
-                System.out.println("Файл не зашифрован. При расшифровке будет фигня!");
-                err = "Файл не зашифрован. При расшифровке будет фигня!";
-                BadFile.display(err);
-            } else if (fileName.contains("расшифрован")) {
+            if (fileName.contains("_расшифрован")) {
                 err = "Файл уже был расшифрован. При расшифровке может выйти фигня!";
+                BadFile.display(err);
+            } else if (!fileName.contains("_зашифрован")) {
+                err = "Файл не зашифрован. При расшифровке будет фигня!";
                 BadFile.display(err);
             } else if (!fileName.contains(title)) {
                 err = "Так сделать нельзя. Файл зашифрован другим алгоритмом!";
@@ -139,7 +129,6 @@ class AlertWindow {
         });
 
         fileNameLabel = new Label();
-        fileNameLabel.setFont(Font.font("Courier New",15));
         fileNameLabel.setStyle("-fx-font-weight:bold;");
 
         ImageView imageView1 = new ImageView("question.jpg");
@@ -155,6 +144,7 @@ class AlertWindow {
         hLayoutTodo.getChildren().addAll(imageView1, vLayoutTodo);
 
         sceneTodo = new Scene(hLayoutTodo, 350, 220);
+        sceneTodo.getStylesheets().add("style.css");
     }
 
     private static File openFile() throws IOException  {

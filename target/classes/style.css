@@ -1,0 +1,28 @@
+.menu-button {
+    -fx-color: #71DF89;
+    -fx-font: 13px "Courier New";
+}
+
+.menu-button .label{
+    -fx-font: 13px "Courier New";
+}
+
+.button {
+    -fx-font: 15px "Courier New";
+    -fx-color: #71DF89;
+}
+
+.label {
+    -fx-font: 17px "Courier New";
+}
+
+#buttonAlg {
+    -fx-font: 17px "Courier New";
+    -fx-color: #71DF89;
+}
+
+#labelProgName {
+    -fx-font: 18px "Courier New";
+    -fx-font-weight:bold;
+    -fx-font-color:black;
+}
