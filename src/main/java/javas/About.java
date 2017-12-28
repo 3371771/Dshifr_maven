@@ -14,7 +14,7 @@ class About {
 
     static void display(){
         Stage windowAbout = new Stage();
-        //добавим иконку и названеи окна
+        //добавим иконку в название окна
         windowAbout.setTitle("О программе");
 
         windowAbout.getIcons().add(new Image("info_.jpg"));

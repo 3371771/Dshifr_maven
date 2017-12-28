@@ -51,7 +51,9 @@ class CloseDialog {
         Button buttonSave = new Button("Сохранить");
         buttonSave.setPrefWidth(160);
         buttonSave.setOnAction(e -> {
+            //перевод флага fileSave в true
             fileSave = true;
+            // распределение по зашифровать/расшифровать и алгоритмам
             if (AlertWindow.toDo.equals("encrypt")) {
                 switch (AlertWindow.titleOut) {
                     case "AES":
@@ -103,7 +105,7 @@ class CloseDialog {
                     default: break;
                 }
             }
-            //ToDo: сюда ожидание на секунды 2
+            //ожидание
             try {
                 Thread.sleep(1500);
             } catch (InterruptedException e1) {

@@ -11,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 class BadFile {
@@ -23,10 +22,9 @@ class BadFile {
 
         windowError.getIcons().add(new Image("icon_.jpg"));
 
-        //windowError.initModality(Modality.APPLICATION_MODAL);
         windowError.setTitle("Ошибка!!");
         windowError.setHeight(200);
-        windowError.setWidth(770);
+        windowError.setWidth(800);
 
         Label labelError = new Label(err);
         labelError.setFont(Font.font("Courier New",17));

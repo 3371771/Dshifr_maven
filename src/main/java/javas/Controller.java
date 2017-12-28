@@ -236,8 +236,8 @@ class Controller {
 
             FileInputStream fis = new FileInputStream(cleartextFile);
             FileOutputStream fos = new FileOutputStream(cipherFile);
-            System.out.println("Зашифровали " + cleartextFile);
-            System.out.println("Вот сюда " + cipherFile);
+//            System.out.println("Зашифровали " + cleartextFile);
+//            System.out.println("Вот сюда " + cipherFile);
             CipherOutputStream cos = new CipherOutputStream(fos, cipher);
 
                 byte[] block = new byte[8];
@@ -266,8 +266,8 @@ class Controller {
             FileOutputStream fos = new FileOutputStream(cleartextAgainFile);
             FileInputStream fis = new FileInputStream(cipherFile);
 
-            System.out.println("Расшифровываем сюда" + cleartextAgainFile);
-            System.out.println("Вот это " + cipherFile);
+//            System.out.println("Расшифровываем сюда" + cleartextAgainFile);
+//            System.out.println("Вот это " + cipherFile);
 
             CipherInputStream cis = new CipherInputStream(fis, cipher);
 

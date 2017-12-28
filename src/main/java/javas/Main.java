@@ -63,6 +63,7 @@ public class Main extends Application{
         Label labelProgName = new Label("D' ШИФР");
         labelProgName.setId("labelProgName");
 
+
         Button buttonRsa = new Button("RSA");
         buttonRsa.setId("buttonAlg");
         buttonRsa.setOnAction(e -> AlertWindow.display("RSA"));
@@ -104,7 +105,6 @@ public class Main extends Application{
         layoutMain.setCenter(centerBox);
         layoutMain.setBottom(bottomBox);
 
-        //добавить новый имг с облаками
 
         //применяем разметку к первому окну
         Scene sceneMain = new Scene(layoutMain, 500, 180);

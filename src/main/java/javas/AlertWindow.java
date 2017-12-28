@@ -8,15 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
-import javafx.scene.text.Font;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
 
 class AlertWindow {
@@ -100,8 +99,8 @@ class AlertWindow {
         Button buttonTodoEncrypt = new Button("Зашифровать");
         buttonTodoEncrypt.setPrefWidth(150);
         buttonTodoEncrypt.setOnAction(e -> {
-            if (title.equals("RSA") && (AlertWindow.file.length()>501)) {
-                    BadFile.display("Такой большой файл я зашифровать не смогу :( До 501б максимум");
+            if (title.equals("RSA") && (AlertWindow.file.length()>116)) {
+                    BadFile.display("Такой большой файл я зашифровать не смогу :( До 116б максимум");
                     BadFile.buttonYes.setVisible(false);
                     BadFile.windowError.setWidth(850);
             } else {
